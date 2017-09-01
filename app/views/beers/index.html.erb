@@ -1,0 +1,15 @@
+<h1>Beers For: <%= current_user.email %> </h1>
+<hr>
+
+<% if @beers.any? %>
+<div class="row">
+  <% @beers.each do |beer| %>
+    <div class="jumbotron col-xs-12 col-sm-6">
+      <h2><%= beer.name %></h2>
+      <%= link_to 'Show Beer', beer_path(beer), class: 'btn btn-primary btn-block' %>
+    </div>
+  <% end %>
+</div>
+<% else %>
+  <h3>You need a little more alcohol in you.</h3>
+<% end %>
